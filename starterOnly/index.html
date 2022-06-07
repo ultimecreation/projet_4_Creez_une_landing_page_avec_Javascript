@@ -49,29 +49,34 @@
             <div class="content">
                 <span class="close"></span>
                 <div class="modal-body">
-                    <form name="reserve" action="index.html" method="get" onsubmit="return validate();">
-                        <div class="formData" data-error-visible="true">
+                    <form name="reserve" action="index.html" method="get" onsubmit="return validate(event);">
+                        <div class="formData" data-error-visible="false">
                             <label  for="first">Prénom</label><br>
                             <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
+                            <small id="firstError" class="error__msg"></small>
                         </div>
-                        <div class="formData"  data-error-visible="true">
+                        <div class="formData"  data-error-visible="false">
                             <label for="last">Nom</label><br>
                             <input class="text-control" type="text" id="last" name="last" /><br>
+                            <small id="lastError" class="error__msg"></small>
                         </div>
-                        <div class="formData"  data-error-visible="true">
+                        <div class="formData"  data-error-visible="false">
                             <label for="email">E-mail</label><br>
-                            <input class="text-control" type="email" id="email" name="email" /><br>
+                            <input class="text-control" type="text" id="email" name="email" /><br>
+                            <small id="emailError" class="error__msg"></small>
                         </div>
                         <div class="formData">
                             <label for="birthdate">Date de naissance</label><br>
                             <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
                         </div>
-                        <div class="formData"  data-error-visible="true">
+                        <div class="formData"  data-error-visible="false">
                             <label for="quantity" >À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                             <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
+                            <small id="quantityError" class="error__msg"></small>
                         </div>
                         <p class="text-label">A quel tournoi souhaitez-vous participer cette année ?</p>
-                        <div class="formData" data-error-visible="false">
+                        <small id="locationError" class="error__msg"></small>
+                        <div class="formData">
 
                             <input class="checkbox-input" type="radio" id="location1" name="location" value="New York" />
                             <label class="checkbox-label" for="location1">
@@ -112,12 +117,13 @@
                         </div>
 
                         <div class="formData">
-
-                            <input class="checkbox-input" type="checkbox" id="checkbox1" checked />
+                            <p id="checkbox1Error" class="error__msg"></p>
+                            <input class="checkbox-input" type="checkbox" id="checkbox1" name="checkbox1" checked />
                             <label class="checkbox2-label" for="checkbox1" required>
                                 <span class="checkbox-icon"></span>
                                 J'ai lu et accepté les conditions d'utilisation.
                             </label>
+                            
                             <br>
 
                             <input class="checkbox-input" type="checkbox" id="checkbox2" />
