@@ -10,12 +10,12 @@ const closeBtn = document.querySelector('.close')
 
 // FUNCTIONS 
 function editNav() {
-  var x = document.getElementById("myTopnav");
-  if (x.className === "topnav") {
-    x.className += " responsive";
-  } else {
-    x.className = "topnav";
-  }
+    var x = document.getElementById("myTopnav");
+    if (x.className === "topnav") {
+        x.className += " responsive";
+    } else {
+        x.className = "topnav";
+    }
 }
 
 /**
@@ -24,20 +24,20 @@ function editNav() {
  * @return  void
  */
 const resetFormErrors = () => {
-  // bind formData/error__msg css classes
-  const formDataArray = document.querySelectorAll('.formData')
-  const errorMsgContainers = document.querySelectorAll('.error__msg')
+    // bind formData/error__msg css classes
+    const formDataArray = document.querySelectorAll('.formData')
+    const errorMsgContainers = document.querySelectorAll('.error__msg')
 
-  // remove the red borders
-  formDataArray.forEach(formData => {
-    formData.dataset.errorVisible = false
-    console.log(formData.dataset.errorVisible)
-  })
+    // remove the red borders
+    formDataArray.forEach(formData => {
+        formData.dataset.errorVisible = false
+        console.log(formData.dataset.errorVisible)
+    })
 
-  // remove the error text
-  errorMsgContainers.forEach(errorMsgContainer => {
-    errorMsgContainer.textContent = ''
-  })
+    // remove the error text
+    errorMsgContainers.forEach(errorMsgContainer => {
+        errorMsgContainer.textContent = ''
+    })
 }
 
 /**
@@ -46,8 +46,8 @@ const resetFormErrors = () => {
  * @return  void
  */
 function launchModal() {
-  resetFormErrors()
-  modalbg.style.display = "block";
+    resetFormErrors()
+    modalbg.style.display = "block";
 }
 
 
@@ -56,7 +56,7 @@ function launchModal() {
  * @return  void
  */
 const closeModal = () => {
-  modalbg.style.display = "none";
+    modalbg.style.display = "none";
 }
 
 /**
@@ -67,51 +67,53 @@ const closeModal = () => {
  * @return  boolean   
  */
 const validate = (event) => {
-  // prevent from button behavior and reset errors if any
-  event.preventDefault()
-  resetFormErrors()
+    // prevent from button behavior and reset errors if any
+    event.preventDefault()
+    resetFormErrors()
 
-  // bind data
-  const form = document.querySelector('form[name="reserve"]')
-  const first = document.querySelector('#first')
-  const last = document.querySelector('#last')
-  const email = document.querySelector('#email')
-  const quantity = document.querySelector('#quantity')
-  let location = document.querySelector('input[name="location"]:checked')
-  const checkbox1 = document.querySelector('#checkbox1')
-  const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
-  
-  // check for errors
-  let errors = []
-  if (first.value.length < 2) errors.push({ target: first, msg: "Le prénom est requis ( 2 charactères minimum)" })
-  if (last.value.length < 2) errors.push({ target: last, msg: "Le nom est requis ( 2 charactères minimum)" })
-  if (email.value === '') errors.push({ target: email, msg: "L'email est requis" })
-  else if (!email.value.toLowerCase().match(emailRegex)) errors.push({ target: email, msg: "L'email n'est pas valide" })
-  if (!parseInt(quantity.value)) errors.push({ target: quantity, msg: "Le nombre de tournois est requis" })
-  if (location === null ){
-    // no location selected, set the location input as default to display the error
-    location = document.querySelector('input[name="location"]')
-    errors.push({ target: location, msg: "Un lieu de tournois est requis" })
-  } 
-  if (checkbox1.checked !== true) errors.push({ target: checkbox1, msg: "L'acceptation des CGU est requise" })
- 
-  // some errors found, dispaly them to the user
-  if (errors.length > 0) {
-    errors.map(error => {
+    // bind data
+    const form = document.querySelector('form[name="reserve"]')
+    const first = document.querySelector('#first')
+    const last = document.querySelector('#last')
+    const email = document.querySelector('#email')
+    const birthdate = document.querySelector('#birthdate')
+    const quantity = document.querySelector('#quantity')
+    let location = document.querySelector('input[name="location"]:checked')
+    const checkbox1 = document.querySelector('#checkbox1')
+    const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-      // add the red borders around current input
-      error.target.parentElement.dataset.errorVisible = true
+    // check for errors
+    let errors = []
+    if (first.value.length < 2) errors.push({ target: first, msg: "Veuillez entrer 2 caractères ou plus pour le champ du prénom." })
+    if (last.value.length < 2) errors.push({ target: last, msg: "Veuillez entrer 2 caractères ou plus pour le champ du nom." })
+    if (email.value === '') errors.push({ target: email, msg: "L'email est requis" })
+    else if (!email.value.toLowerCase().match(emailRegex)) errors.push({ target: email, msg: "L'email n'est pas valide" })
+    if (birthdate.value === '') errors.push({ target: birthdate, msg: "Vous devez entrer votre date de naissance." })
+    if (!parseInt(quantity.value)) errors.push({ target: quantity, msg: "Le nombre de tournois est requis" })
+    if (location === null) {
+        // no location selected, set the location input as default to display the error
+        location = document.querySelector('input[name="location"]')
+        errors.push({ target: location, msg: "Vous devez choisir une option." })
+    }
+    if (checkbox1.checked !== true) errors.push({ target: checkbox1, msg: "Vous devez vérifier que vous acceptez les termes et conditions." })
 
-      // get the error container and insert the error msg
-      const currentErrorContainer = document.querySelector(`#${error.target.name}Error`)
-      currentErrorContainer.textContent = `${error.msg}`
-     
-    })
+    // some errors found, dispaly them to the user
+    if (errors.length > 0) {
+        errors.map(error => {
+
+            // add the red borders around current input
+            error.target.parentElement.dataset.errorVisible = true
+
+            // get the error container and insert the error msg
+            const currentErrorContainer = document.querySelector(`#${error.target.name}Error`)
+            currentErrorContainer.textContent = `${error.msg}`
+
+        })
+        return false
+    }
+    form.reset()
+    console.log('Félicitation NAS')
     return false
-  }
-  form.reset()
-  console.log('Félicitation NAS')
-  return false
 
 
 }
