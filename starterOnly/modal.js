@@ -73,6 +73,7 @@ const validate = (event) => {
 
     // bind data
     const form = document.querySelector('form[name="reserve"]')
+    const formSubmissionSuccess = document.querySelector('#form__submission--success')
     const first = document.querySelector('#first')
     const last = document.querySelector('#last')
     const email = document.querySelector('#email')
@@ -111,11 +112,14 @@ const validate = (event) => {
         })
         return false
     }
-    form.reset()
-    console.log('Félicitation NAS')
-    return false
-
-
+    
+    formSubmissionSuccess.style.display = 'block'
+    setTimeout(() => {
+        form.reset()
+        formSubmissionSuccess.style.display = 'none'
+        closeModal()
+    },3000)
+    return true
 }
 
 // EVENT LISTENENERS

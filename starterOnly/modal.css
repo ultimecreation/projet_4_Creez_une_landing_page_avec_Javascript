@@ -230,6 +230,14 @@ input {
   color:red;
   font-size: 1rem;
 }
+#form__submission--success{
+  display: none;
+  width: 100%;
+  padding: 1rem;
+  text-align: center;
+  background: rgb(177, 248, 177);
+  color:#000;
+}
 /* 
 input[data-error]::after {
     content: attr(data-error);
