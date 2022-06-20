@@ -3,7 +3,8 @@ const modalbg = document.querySelector(".bground");
 const modalBtn = document.querySelectorAll(".modal-btn");
 const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector('.close')
-
+const form = document.querySelector('form[name="reserve"]')
+const formSubmissionSuccess = document.querySelector('#div__submission--success')
 
 
 
@@ -55,6 +56,8 @@ function launchModal() {
  * @return  void
  */
 const closeModal = () => {
+    formSubmissionSuccess.style.display = 'none'
+    form.style.display = 'block'
     modalbg.style.display = "none";
 }
 
@@ -71,8 +74,7 @@ const validate = (event) => {
     resetFormErrors()
 
     // bind incoming data
-    const form = document.querySelector('form[name="reserve"]')
-    const formSubmissionSuccess = document.querySelector('#form__submission--success')
+    
     const first = document.querySelector('#first')
     const last = document.querySelector('#last')
     const email = document.querySelector('#email')
@@ -113,14 +115,12 @@ const validate = (event) => {
     }
     
     // no errors, display the success msg 
+    form.style.display = 'none'
     formSubmissionSuccess.style.display = 'block'
 
     // reset the form inputs and success msg after 3s
-    setTimeout(() => {
-        form.reset()
-        formSubmissionSuccess.style.display = 'none'
-        closeModal()
-    },3000)
+   
+    form.reset()
     return true
 }
 

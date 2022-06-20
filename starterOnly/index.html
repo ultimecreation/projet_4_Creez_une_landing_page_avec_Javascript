@@ -33,7 +33,8 @@
             <div class="hero-content">
                 <h1 class="hero-headline"> Marathon national<br> de jeux vidéos </h1>
 
-                <p class="hero-text"> Vous aimez jouer ? Notre prochain évènement gaming est ouvert  aux réservations... Places limitées ! </p>
+                <p class="hero-text"> Vous aimez jouer ? Notre prochain évènement gaming est ouvert aux réservations...
+                    Places limitées ! </p>
 
                 <button class="btn-signup modal-btn"> je m'inscris </button>
             </div>
@@ -49,19 +50,23 @@
             <div class="content">
                 <span class="close"></span>
                 <div class="modal-body">
+                    <div id="div__submission--success">
+                        <p>Merci ! Votre réservation a été reçue.</p>
+                        <button class="btn-close" onclick="closeModal()">Fermer</button>
+                    </div>
                     <form name="reserve" action="index.html" method="get" onsubmit="return validate(event);">
-                        <small id="form__submission--success" >Merci ! Votre réservation a été reçue.</small>
+
                         <div class="formData" data-error-visible="false">
-                            <label  for="first">Prénom</label><br>
+                            <label for="first">Prénom</label><br>
                             <input class="text-control" type="text" id="first" name="first" minlength="2" /><br>
                             <small id="firstError" class="error__msg"></small>
                         </div>
-                        <div class="formData"  data-error-visible="false">
+                        <div class="formData" data-error-visible="false">
                             <label for="last">Nom</label><br>
                             <input class="text-control" type="text" id="last" name="last" /><br>
                             <small id="lastError" class="error__msg"></small>
                         </div>
-                        <div class="formData"  data-error-visible="false">
+                        <div class="formData" data-error-visible="false">
                             <label for="email">E-mail</label><br>
                             <input class="text-control" type="text" id="email" name="email" /><br>
                             <small id="emailError" class="error__msg"></small>
@@ -71,8 +76,8 @@
                             <input class="text-control" type="date" id="birthdate" name="birthdate" /><br>
                             <small id="birthdateError" class="error__msg"></small>
                         </div>
-                        <div class="formData"  data-error-visible="false">
-                            <label for="quantity" >À combien de tournois GameOn avez-vous déjà participé ?</label><br>
+                        <div class="formData" data-error-visible="false">
+                            <label for="quantity">À combien de tournois GameOn avez-vous déjà participé ?</label><br>
                             <input type="number" class="text-control" id="quantity" name="quantity" min="0" max="99">
                             <small id="quantityError" class="error__msg"></small>
                         </div>
@@ -125,7 +130,7 @@
                                 <span class="checkbox-icon"></span>
                                 J'ai lu et accepté les conditions d'utilisation.
                             </label>
-                            
+
                             <br>
 
                             <input class="checkbox-input" type="checkbox" id="checkbox2" />
