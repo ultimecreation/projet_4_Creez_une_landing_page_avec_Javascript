@@ -82,7 +82,7 @@ const validate = (event) => {
     const quantity = document.querySelector('#quantity')
     let location = document.querySelector('input[name="location"]:checked')
     const checkbox1 = document.querySelector('#checkbox1')
-    const lettersRegex = letters = /^[A-Za-z]+$/
+    const lettersRegex = letters = /^[A-Za-z'-]+$/
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     // create empty errors array to fill while checking for errors
