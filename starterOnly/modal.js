@@ -117,13 +117,10 @@ const validate = (event) => {
         return false
     }
     
-    // no errors, display the success msg 
+    // no errors,reset the form inputs and display the success msg 
+    form.reset()
     form.style.display = 'none'
     formSubmissionSuccess.style.display = 'block'
-
-    // reset the form inputs and success msg after 3s
-   
-    form.reset()
     return true
 }
 
