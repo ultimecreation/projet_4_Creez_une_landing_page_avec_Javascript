@@ -50,7 +50,6 @@ function launchModal() {
     modalbg.style.display = "block";
 }
 
-
 /**
  * close the modal when X is clicked
  * @return  void
@@ -67,11 +66,11 @@ const closeModal = () => {
  * @return  boolean   
  */
 const validate = (event) => {
-    // prevent from button behavior and reset errors if any
+    // prevent from default button behavior and reset errors if any
     event.preventDefault()
     resetFormErrors()
 
-    // bind data
+    // bind incoming data
     const form = document.querySelector('form[name="reserve"]')
     const formSubmissionSuccess = document.querySelector('#form__submission--success')
     const first = document.querySelector('#first')
@@ -83,7 +82,7 @@ const validate = (event) => {
     const checkbox1 = document.querySelector('#checkbox1')
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
-    // check for errors
+    // create empty errors array to fill while checking for errors
     let errors = []
     if (first.value.length < 2) errors.push({ target: first, msg: "Veuillez entrer 2 caractères ou plus pour le champ du prénom." })
     if (last.value.length < 2) errors.push({ target: last, msg: "Veuillez entrer 2 caractères ou plus pour le champ du nom." })
@@ -98,7 +97,7 @@ const validate = (event) => {
     }
     if (checkbox1.checked !== true) errors.push({ target: checkbox1, msg: "Vous devez vérifier que vous acceptez les termes et conditions." })
 
-    // some errors found, dispaly them to the user
+    // some errors found, display them to the user
     if (errors.length > 0) {
         errors.map(error => {
 
@@ -113,7 +112,10 @@ const validate = (event) => {
         return false
     }
     
+    // no errors, display the success msg 
     formSubmissionSuccess.style.display = 'block'
+
+    // reset the form inputs and success msg after 3s
     setTimeout(() => {
         form.reset()
         formSubmissionSuccess.style.display = 'none'
@@ -122,7 +124,11 @@ const validate = (event) => {
     return true
 }
 
+
+
 // EVENT LISTENENERS
+
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
+// close modal on click
 closeBtn.addEventListener('click', closeModal)
