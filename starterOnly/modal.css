@@ -43,6 +43,7 @@ img {
 }
 .main-navbar {
     float: right;
+    
 }
 .topnav a {
   float: left;
@@ -56,9 +57,13 @@ img {
   font-family: Roboto, sans-serif;
 }
 
-.topnav a:hover {
+.topnav a:hover:not(:last-of-type) {
   background-color: #ff0000;
   color: #ffffff;
+  border-radius: 15px;
+}
+.topnav a:hover:last-of-type {
+  color: #000;
   border-radius: 15px;
 }
 
@@ -77,8 +82,8 @@ main {
   font-weight: bolder;
   color: black;
   padding-top: 0.5vw;
-  padding-left: 2vw;
-  padding-right: 2vw;
+  padding-left: 1vw;
+  padding-right: 5vw;
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
@@ -455,6 +460,7 @@ input {
   height: 100%;
   display: block;
   padding: 0;
+  padding-left: 5rem;
 }
 .copyrights {
   color: #fe142f;
@@ -511,11 +517,24 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
-  .topnav.responsive {position: relative;}
+  .header-logo{
+    position: relative;
+    top: 17px;
+    height: 2rem;
+  }
+  .header-logo img{
+    height: 2rem;
+  }
+  .topnav.responsive {
+    position: relative;
+  }
   .topnav.responsive .icon {
     position: absolute;
     right: 0;
     top: 0;
+  }
+  .topnav.responsive .icon .fa-bars {
+    color: #000;
   }
   .topnav.responsive a {
     float: none;
@@ -526,16 +545,43 @@ footer {
   .topnav a.icon {
     float: right;
     display: block;
+    font-size: 2rem;
   }
+  .topnav a.icon .fa-bars{
+    
+    color: #ff0000;
+  }
+
 }
 
 
 
  @media screen and (max-width: 540px) {
+  main{
+    padding: 0;
+    margin: 14.5px;
+  }
+  .header-logo img{
+    height: 1.25rem;
+  }
   .topnav a {display: none;}
   .topnav a.icon {
     float: right;
     display: block;
+    font-size: 1.25rem;
+  }
+  .hero-content{
+    padding: 0;
+  }
+  .hero-headline{
+    font-size: 2.7rem;
+  }
+  .hero-text{
+    font-size: 0.9rem;
+    max-width: 36ch;
+  }
+  .hero-img img{
+    padding: 0;
   }
 } 
 
