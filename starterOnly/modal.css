@@ -561,6 +561,9 @@ footer {
     padding: 0;
     margin: 14.5px;
   }
+  .content{
+    top:60px;
+  }
   .header-logo img{
     height: 1.25rem;
   }
@@ -582,6 +585,10 @@ footer {
   }
   .hero-img img{
     padding: 0;
+  }
+  .copyrights{
+    font-size: 0.75rem;
+    margin-top: -0.5rem;
   }
 } 
 
