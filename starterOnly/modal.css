@@ -17,7 +17,7 @@ body {
   background-image: url("background.png");
   font-family: var(--font-default);
   font-size: 18px;
-  max-width: 1300px;
+  max-width: 1440px;
   margin: 0 auto;
 }
 
@@ -43,6 +43,7 @@ img {
 }
 .main-navbar {
     float: right;
+    padding-right: 60px;
     
 }
 .topnav a {
@@ -87,7 +88,8 @@ main {
   margin: 1px 20px 15px;
   border-radius: 2rem;
   text-align: justify;
-
+  max-width:1240px;
+  margin: 0 auto;
 
 }
 
@@ -403,7 +405,7 @@ input {
   font-size: 16px;
 }
 .hero-section {
-  min-height: 93vh;
+  /* min-height: 93vh; */
   border-radius: 10px;
   display: grid;
   grid-template-columns: repeat(12, 1fr);
@@ -478,6 +480,13 @@ footer {
   margin: 0 20px;
 }
 @media screen and (max-width: 800px) {
+  main{
+    padding: 0;
+    margin: 14.5px;
+  }
+  .main-navbar {
+    padding-right: 0;
+}
   .hero-section {
     display: block;
     box-shadow: unset;
@@ -504,6 +513,7 @@ footer {
   .hero-img img {
     border-radius: 10px;
     margin-top: 40px;
+    padding: 0;
   }
   .hero-section > .btn-signup {
     display: block;
@@ -517,6 +527,13 @@ footer {
 }
 
 @media screen and (max-width: 768px) {
+  main{
+    padding: 0;
+    margin: 14.5px;
+  }
+  .main-navbar {
+    padding-right: 0; 
+}
   .header-logo{
     position: relative;
     top: 17px;
@@ -548,8 +565,10 @@ footer {
     font-size: 2rem;
   }
   .topnav a.icon .fa-bars{
-    
     color: #ff0000;
+  }
+  .hero-img img{
+    padding: 0;
   }
 
 }
@@ -557,6 +576,9 @@ footer {
 
 
  @media screen and (max-width: 540px) {
+  .main-navbar {
+    padding-right: 0;
+}
   main{
     padding: 0;
     margin: 14.5px;
