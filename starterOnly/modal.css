@@ -224,6 +224,7 @@ input {
   bottom: 0;
   right: 0;
   left: 0;
+  text-align: center;
 }
 
 /* input[data-error]::after {
@@ -332,6 +333,9 @@ input {
   color: #fff;
   cursor: pointer;
   border: 0;
+}
+.btn-close {
+  padding: 12px ;
 }
 /* custom select styles */
 .custom-select {
@@ -486,6 +490,9 @@ footer {
   }
   .main-navbar {
     padding-right: 0;
+}
+.topnav.responsive .main-navbar{
+  margin: 2.5rem 2.5rem 0 0 ;
 }
   .hero-section {
     display: block;
