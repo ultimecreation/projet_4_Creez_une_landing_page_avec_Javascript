@@ -82,15 +82,13 @@ const validate = (event) => {
     const quantity = document.querySelector('#quantity')
     let location = document.querySelector('input[name="location"]:checked')
     const checkbox1 = document.querySelector('#checkbox1')
-    const lettersRegex = letters = /^[A-Za-z'-]+$/
+    const lettersRegex = letters = /^[A-Za-z]{2,}$/
     const emailRegex = /^(([^<>()[\]\\.,;:\s@"]+(\.[^<>()[\]\\.,;:\s@"]+)*)|(".+"))@((\[[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\.[0-9]{1,3}\])|(([a-zA-Z\-0-9]+\.)+[a-zA-Z]{2,}))$/
 
     // create empty errors array to fill while checking for errors
     let errors = []
-    if (first.value.length < 2) errors.push({ target: first, msg: "Veuillez entrer 2 caractères ou plus pour le champ du prénom." })
-    else if(!first.value.match(lettersRegex)) errors.push({ target: first, msg: "Seuls les caractères alphabétiques sont valides pour le champ du prénom." })
-    if (last.value.length < 2) errors.push({ target: last, msg: "Veuillez entrer 2 caractères ou plus pour le champ du nom." })
-    else if(!last.value.match(lettersRegex)) errors.push({ target: last, msg: "Seuls les caractères alphabétiques sont valides pour le champ du nom." })
+    if (!first.value.match(lettersRegex)) errors.push({ target: first, msg: "Veuillez entrer 2 caractères ou plus pour le champ du prénom." })
+    if (!last.value.match(lettersRegex)) errors.push({ target: last, msg: "Veuillez entrer 2 caractères ou plus pour le champ du nom." })
     if (email.value === '') errors.push({ target: email, msg: "L'email est requis" })
     else if (!email.value.toLowerCase().match(emailRegex)) errors.push({ target: email, msg: "L'email n'est pas valide" })
     if (birthdate.value === '') errors.push({ target: birthdate, msg: "Vous devez entrer votre date de naissance." })
