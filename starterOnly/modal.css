@@ -44,6 +44,7 @@ img {
 .header-logo img {
   width: auto;
   height: auto;
+  margin: 0.5rem 0 0 4rem;
 }
 
 .main-navbar {
@@ -79,6 +80,11 @@ img {
   background-color: #ff0000;
   color: #ffffff;
   border-radius: 15px;
+  border-bottom: 3px solid white;
+}
+.topnav a.active span{
+  padding-bottom: 3px;
+  border-bottom: 1px solid white;
 }
 
 .topnav .icon {
