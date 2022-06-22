@@ -5,7 +5,7 @@ const formData = document.querySelectorAll(".formData");
 const closeBtn = document.querySelector('.close')
 const form = document.querySelector('form[name="reserve"]')
 const formSubmissionSuccess = document.querySelector('#div__submission--success')
-
+const mainNavbar = document.querySelector('.main-navbar')
 
 
 
@@ -39,26 +39,6 @@ const resetFormErrors = () => {
     errorMsgContainers.forEach(errorMsgContainer => {
         errorMsgContainer.textContent = ''
     })
-}
-
-/**
- * launch modal on btn click
- * resets at start errors if any 
- * @return  void
- */
-function launchModal() {
-    resetFormErrors()
-    modalbg.style.display = "block";
-}
-
-/**
- * close the modal when X is clicked
- * @return  void
- */
-const closeModal = () => {
-    formSubmissionSuccess.style.display = 'none'
-    form.style.display = 'block'
-    modalbg.style.display = "none";
 }
 
 /**
@@ -122,10 +102,40 @@ const validate = (event) => {
     return true
 }
 
+const makeNavItemActive = e => {
+    const links = mainNavbar.querySelectorAll('a:not(:last-of-type)')
+    links.forEach(link => link.classList.remove('active'))
+    if(e.target.nodeName === 'A'){
+        e.target.classList.add('active')
+    }
+    else if(e.target.nodeName === 'SPAN'){
+        e.target.parentElement.classList.add('active')
+    }
+}
+/**
+ * launch modal on btn click
+ * resets at start errors if any 
+ * @return  void
+ */
+function launchModal() {
+    resetFormErrors()
+    modalbg.style.display = "block";
+}
 
+/**
+ * close the modal when X is clicked
+ * @return  void
+ */
+const closeModal = () => {
+    formSubmissionSuccess.style.display = 'none'
+    form.style.display = 'block'
+    modalbg.style.display = "none";
+}
 
 // EVENT LISTENENERS
 
+// add active class to nav items
+mainNavbar.addEventListener('click',makeNavItemActive)
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // close modal on click
