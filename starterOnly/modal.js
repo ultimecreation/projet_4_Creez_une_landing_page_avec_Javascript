@@ -17,9 +17,9 @@ const mainNavbar = document.querySelector('.main-navbar')
  */
 function editNav() {
     var hamburgerMenu = document.getElementById("myTopnav");
-    hamburgerMenu.className === "topnav" 
-        ? hamburgerMenu.className += " responsive" 
-        :  hamburgerMenu.className = "topnav";
+    hamburgerMenu.className === "topnav"
+        ? hamburgerMenu.className += " responsive"
+        : hamburgerMenu.className = "topnav";
 }
 
 /**
