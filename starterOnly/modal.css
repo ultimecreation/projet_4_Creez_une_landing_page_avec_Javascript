@@ -616,10 +616,13 @@ footer {
     position: absolute;
     right: 0;
     top: 0;
+    background-color: #ff0000;
+      color: #ffffff;
+      border-radius: 15px;
   }
 
   .topnav.responsive .icon .fa-bars {
-    color: #000;
+    color: white;
   }
 
   .topnav.responsive a {
