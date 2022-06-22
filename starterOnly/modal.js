@@ -10,13 +10,16 @@ const mainNavbar = document.querySelector('.main-navbar')
 
 
 // FUNCTIONS 
+/**
+ * toggle open/close hamburger menu
+ *
+ * @return  void
+ */
 function editNav() {
-    var x = document.getElementById("myTopnav");
-    if (x.className === "topnav") {
-        x.className += " responsive";
-    } else {
-        x.className = "topnav";
-    }
+    var hamburgerMenu = document.getElementById("myTopnav");
+    hamburgerMenu.className === "topnav" 
+        ? hamburgerMenu.className += " responsive" 
+        :  hamburgerMenu.className = "topnav";
 }
 
 /**
@@ -54,7 +57,7 @@ const validate = (event) => {
     resetFormErrors()
 
     // bind incoming data
-    
+
     const first = document.querySelector('#first')
     const last = document.querySelector('#last')
     const email = document.querySelector('#email')
@@ -94,7 +97,7 @@ const validate = (event) => {
         })
         return false
     }
-    
+
     // no errors,reset the form inputs and display the success msg 
     form.reset()
     form.style.display = 'none'
@@ -102,16 +105,21 @@ const validate = (event) => {
     return true
 }
 
-const makeNavItemActive = e => {
+/**
+ * add active class to nav links on click
+ * 
+ * @param  event  
+ *
+ * @return  void 
+ */
+const makeNavItemActive = event => {
     const links = mainNavbar.querySelectorAll('a:not(:last-of-type)')
     links.forEach(link => link.classList.remove('active'))
-    if(e.target.nodeName === 'A'){
-        e.target.classList.add('active')
-    }
-    else if(e.target.nodeName === 'SPAN'){
-        e.target.parentElement.classList.add('active')
-    }
+    event.target.nodeName === 'SPAN'
+        ? event.target.parentElement.classList.add('active')
+        : event.target.classList.add('active')
 }
+
 /**
  * launch modal on btn click
  * resets at start errors if any 
@@ -135,7 +143,7 @@ const closeModal = () => {
 // EVENT LISTENENERS
 
 // add active class to nav items
-mainNavbar.addEventListener('click',makeNavItemActive)
+mainNavbar.addEventListener('click', makeNavItemActive)
 // launch modal event
 modalBtn.forEach((btn) => btn.addEventListener("click", launchModal));
 // close modal on click
