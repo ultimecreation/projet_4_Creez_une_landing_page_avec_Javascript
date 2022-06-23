@@ -45,7 +45,7 @@ const resetFormErrors = () => {
 }
 
 /**
- * [validate description]
+ * handle form submission
  *
  * @param  event  
  *
@@ -57,7 +57,6 @@ const validate = (event) => {
     resetFormErrors()
 
     // bind incoming data
-
     const first = document.querySelector('#first')
     const last = document.querySelector('#last')
     const email = document.querySelector('#email')
