@@ -35,7 +35,6 @@ const resetFormErrors = () => {
     // remove the red borders
     formDataArray.forEach(formData => {
         formData.dataset.errorVisible = false
-        console.log(formData.dataset.errorVisible)
     })
 
     // remove the error text
